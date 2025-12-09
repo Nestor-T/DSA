@@ -1,0 +1,5 @@
+﻿  DSA10.cpp
+C:\Users\Nestor\source\repos\DSA\DSA10\DSA10.cpp(61,1): warning C4715: 'find': not all control paths return a value
+C:\Users\Nestor\source\repos\DSA\DSA10\DSA10.cpp(69,1): warning C4715: 'find_min': not all control paths return a value
+C:\Users\Nestor\source\repos\DSA\DSA10\DSA10.cpp(77,1): warning C4715: 'find_max': not all control paths return a value
+  DSA10.vcxproj -> C:\Users\Nestor\source\repos\DSA\x64\Debug\DSA10.exe
