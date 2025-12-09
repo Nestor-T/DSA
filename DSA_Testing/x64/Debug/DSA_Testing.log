@@ -1,0 +1,3 @@
+﻿  DSA_Testing.cpp
+C:\Users\Nestor\source\repos\DSA\DSA_Testing\DSA_Testing.cpp(12,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  DSA_Testing.vcxproj -> C:\Users\Nestor\source\repos\DSA\x64\Debug\DSA_Testing.exe
