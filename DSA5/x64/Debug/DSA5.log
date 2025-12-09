@@ -1,0 +1,4 @@
+﻿  DSA5.cpp
+C:\Users\Nestor\source\repos\DSA\DSA5\DSA5.cpp(24,28): warning C4805: '==': unsafe mix of type 'int' and type 'bool' in operation
+C:\Users\Nestor\source\repos\DSA\DSA5\DSA5.cpp(15,1): warning C4715: 'iscoprime': not all control paths return a value
+  DSA5.vcxproj -> C:\Users\Nestor\source\repos\DSA\x64\Debug\DSA5.exe
