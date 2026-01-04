@@ -55,29 +55,51 @@ node* find(node* current, int value)
 {
 	if (current == NULL)
 		return NULL;
+
 	if (current->data == value)
+	{
+		cout << "Found node: " << current->data << endl;
+		if (current->left != NULL)
+			cout << "Left node value: " << current->left->data << endl;
+		else
+			cout << "Left node value: NULL" << endl;
+
+		if (current->right != NULL)
+			cout << "Right node value: " << current->right->data << endl;
+		else
+			cout << "Right node value: NULL" << endl;
+
 		return current;
+	}
+
 	if (value < current->data)
-		find(current->left, value);
+		return find(current->left, value);
 	else
-		find(current->right, value);
+		return find(current->right, value);
 }
 
 int find_min(node* current)
 {
+	if (current == NULL)
+		return -1;
+
 	if (current->left == NULL)
 		return current->data;
-	else
-		find_min(current->left);
+
+	return find_min(current->left);
 }
 
 int find_max(node* current)
 {
+	if (current == NULL)
+		return -1;
+
 	if (current->right == NULL)
 		return current->data;
-	else
-		find_max(current->right);
+
+	return find_max(current->right);
 }
+
 
 void print_tree(node* current)
 {
@@ -90,21 +112,44 @@ void print_tree(node* current)
 
 int main()
 {
-	int test;
-	node* nodeone=newnode(0);
-
-	char ch;
-	do
+	int main();
 	{
-		cout << "1. Insert/Create \n2. Find\n3. Find Min\n4. Find Max\n5. Print tree\n6. Quit\nChoose... ";
-		cin >> ch;
-		switch (ch)
+		int test;
+		node* nodeone = NULL;
+		char ch;
+
+		do
 		{
-		case '1': cin >> test;insert(nodeone, test);break;
-		case '2': cin >> test;cout<<find(nodeone, test)<<endl;break;
-		case '3': cout << "Max" << find_min(nodeone) << endl;break;
-		case '4': cout << "Min" << find_max(nodeone);break;
-		case '5': print_tree(nodeone);break;
-		}
-	} while (ch != '6');
+			cout << "\n1. Insert/Create\n2. Find\n3. Find Min\n4. Find Max\n5. Print tree\n6. Quit\nChoose... ";
+			cin >> ch;
+
+			switch (ch)
+			{
+			case '1':
+				cout << "Enter node (num<root left | num>root right): ";
+				cin >> test;
+				nodeone = insert(nodeone, test);
+				break;
+
+			case '2':
+				cin >> test;
+				if (find(nodeone, test) == NULL)
+					cout << "Not found\n";
+				break;
+
+			case '3':
+				cout << "Min = " << find_min(nodeone) << endl;
+				break;
+
+			case '4':
+				cout << "Max = " << find_max(nodeone) << endl;
+				break;
+
+			case '5':
+				print_tree(nodeone);
+				break;
+			}
+		} while (ch != '6');
+	}
+
 }

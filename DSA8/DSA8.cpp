@@ -37,31 +37,36 @@ void print()
 
 }
 
-void insert_l(int data)
+void insert_l()
 {
     item* newitem = new item;
-    newitem->data = data;
-    string tempname;
-    getline(cin, tempname);
-    newitem->name = tempname;
+    newitem->next = NULL;
+
+    cout << "Enter ID: ";
+    cin >> newitem->data;
+
+    cout << "Enter Name: ";
+    cin >> newitem->name;
+
     if (front == NULL || front->name.compare(newitem->name) > 0)
     {
         newitem->next = front;
         front = newitem;
+        return;
     }
-    else
+
+    item* curr = front;
+
+    while (curr->next != NULL &&
+        curr->next->name.compare(newitem->name) <= 0)
     {
-        item* curr = front;
-        item* prev = NULL;
-        while (curr != NULL && curr->data < data)
-        {
-            prev = curr;
-            curr = curr->next;
-        }
-        prev->next = newitem;
-        newitem->next = curr;
+        curr = curr->next;
     }
+
+    newitem->next = curr->next;
+    curr->next = newitem;
 }
+
 
 void search_l(int data) {
 
@@ -137,11 +142,11 @@ int main()
 {
 
     // Append nodes to the list
-    insert_l(100);
-    insert_l(200);
-    insert_l(300);
-    insert_l(400);
-    insert_l(500);
+    insert_l();
+    insert_l();
+    insert_l();
+    insert_l();
+    insert_l();
 
     // Showing nodes
     print();

@@ -15,16 +15,30 @@ int main() {
     string two = "{(5 - 3)/(5 - 6)}";
     stack<char> st;
 
-    string input = one;// one = wrong, two = correct
+    string input = two;// one = wrong, two = correct
 
     for (int i = 0; i < input.size(); i++)
     {
         if (input[i] == '{' || input[i] == '(' || input[i] == '[') st.push(input[i]);
-        if (input[i] == '}' || input[i] == ')' || input[i] == ']') {
-            if (st.empty() == true) {
-                cout << "wrong"; return 0;
+        if (input[i] == '}' || input[i] == ')' || input[i] == ']')
+        {
+            if (st.empty())
+            {
+                cout << "wrong";
+                return 0;
             }
-            else st.pop();
+
+            char top = st.top();
+
+            if ((input[i] == '}' && top == '{') || (input[i] == ')' && top == '(') || (input[i] == ']' && top == '['))
+            {
+                st.pop();
+            }
+            else
+            {
+                cout << "wrong";
+                return 0;
+            }
         }
     }
 
